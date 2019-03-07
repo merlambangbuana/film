@@ -19,4 +19,17 @@ Route::get('home', function () {
     return view('home');
 });
 
+Route::get('kategori', function() {
+    return "kategori film";
+});
 
+Route::get('detail_kategori/{id}', function($id) {
+    return "Halaman Detail Kategori".$id;
+});
+
+Route::resource('kategori', 'KategoriController');
+
+
+/*Route::resource('kategori', 'KategoriController')->except(['destroy','update']);
+*/
+?>
