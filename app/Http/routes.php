@@ -26,6 +26,16 @@ Route::get('kategori', function() {
 Route::get('detail_kategori/{id}', function($id) {
     return "Halaman Detail Kategori".$id;
 });
+<<<<<<< HEAD
+=======
+
+Route::resource('kategori', 'KategoriController');
+
+
+/*Route::resource('kategori', 'KategoriController')->except(['destroy','update']);
+*/
+?>
+>>>>>>> ed782d6c37d180e578b1514d13b40d804546dbea
 
 Route::resource('kategori', 'KategoriController');
 
