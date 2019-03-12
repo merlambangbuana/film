@@ -27,6 +27,10 @@ Route::get('sidebar', function() {
     return view('layouts.master');
 });
 
+Route::get('dashboard', function() {
+    return view('dashboard.dashboard');
+});
+
 Route::get('kategori', function() {
     return "kategori film";
 });
