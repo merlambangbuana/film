@@ -27,6 +27,7 @@
   <link rel="stylesheet" href=" {{ asset('assets/dashboard/bower_components/bootstrap-daterangepicker/daterangepicker.css') }}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset('assets/dashboard/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+  <link rel="stylesheet" href="{{asset('assets/dashboard/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -49,6 +50,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     @yield('content-wrapper')
+    @yield('datatb')
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -103,5 +105,20 @@
 <script src="{{ asset('assets/dashboard/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('assets/dashboard/dist/js/demo.js') }}"></script>
+<script src="{{asset ('assets/dashboard/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{asset ('assets/dashboard/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+
 </body>
 </html>

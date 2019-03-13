@@ -31,6 +31,10 @@ Route::get('dashboard', function() {
     return view('dashboard.dashboard');
 });
 
+Route::resource('datatb', 'KategoriController');
+
+Route::get('query', 'KategoriController@search');
+
 Route::get('kategori', function() {
     return "kategori film";
 });
@@ -42,14 +46,7 @@ Route::get('detail_kategori/{id}', function($id) {
 Route::resource('kategori', 'KategoriController');
 
 
-/*Route::resource('kategori', 'KategoriController')->except(['destroy','update']);
-*/
 
-Route::resource('kategori', 'KategoriController');
-
-
-/*Route::resource('kategori', 'KategoriController')->except(['destroy','update']);
-*/
 ?>
 
 
