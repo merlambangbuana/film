@@ -35,6 +35,7 @@ Route::resource('datatb', 'KategoriController');
 
 Route::get('query', 'KategoriController@search');
 
+
 Route::get('kategori', function() {
     return "kategori film";
 });

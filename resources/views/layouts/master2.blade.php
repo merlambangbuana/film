@@ -28,15 +28,31 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{ asset('assets/dashboard/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
   <link rel="stylesheet" href="{{asset('assets/dashboard/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+  <link href="{{ asset('assets/kategori/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
+  
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <style>
+    .example-modal .modal {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      display: block;
+      z-index: 1;
+    }
+
+    .example-modal .modal {
+      background: transparent !important;
+    }
+    </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -51,6 +67,7 @@
   <div class="content-wrapper">
     @yield('content-wrapper')
     @yield('datatb')
+    @yield('datatb2')
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
@@ -107,18 +124,20 @@
 <script src="{{ asset('assets/dashboard/dist/js/demo.js') }}"></script>
 <script src="{{asset ('assets/dashboard/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{asset ('assets/dashboard/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+<script src="{{asset ('assets/dashboard/dist/js/demo.js')}}"></script>
+<!-- bootstrap datepicker -->
+<script src="{{asset ('asset/dashboard/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
 <script>
+  
+  
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
 
+    //Date picker
+    $('#created_at,#updated_at').datepicker({
+      autoclose: true
+    })
+
+  })
+</script>
 </body>
 </html>

@@ -49,7 +49,12 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=new Kategori();
+        $data->id_kategori=$request->get('id_kategori');
+        $data->nama_kategori=$request->get('nama_kategori');
+        $data->deskripsi_kategori=$request->get('deskripsi_kategori');
+        $data->save();
+        return redirect('datatb');
     }
 
     /**
@@ -69,9 +74,10 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id_kategori)
     {
-        //
+        $kategoris=Kategori::find($id_kategori);
+        return view('dashboard.edit_kategori', compact('kategoris'));
     }
 
     /**
@@ -81,9 +87,13 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_kategori)
     {
-        //
+        $kategoris=Kategori::find($id_kategori);
+        $kategoris->nama_kategori=$request->get('nama_kategori');
+        $kategoris->deskripsi_kategori=$request->get('deskripsi_kategori');
+        $kategoris->save();
+        return redirect ('datatb');
     }
 
     /**
@@ -92,8 +102,10 @@ class KategoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_kategori)
     {
-        //
+        $data=Kategori::find($id_kategori);
+        $data->delete();
+        return redirect('datatb');
     }
 }
